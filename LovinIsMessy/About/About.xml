@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-    <name>Template</name>
+    <name>Lovin' Is Messy (and fun)</name>
     <author>XandrMoro</author>
-    <packageId>Xandrmoro.Rim.Template</packageId>
+    <packageId>Xandrmoro.Rim.LovinIsMessy</packageId>
     <supportedVersions>
         <li>1.4</li>
     </supportedVersions>
 
     <description>
+Doin lovin is fun and recreational*, but sometimes leaves quite a cleanup to be done.
+
+If you dont have Dubs Hygiene, if will leave some love juice on the bed. If you do, it will also significantly increase hygiene need for participants - you can even oblige them to take a bath afterwards!
+
+*toggleable in settings
     </description>
 
     <modDependencies>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="BaseFilth">
+        <defName>lim_Filth_LoveJuice</defName>
+        <label>love juice</label>
+        <statBases>
+          <Beauty>-25</Beauty>
+          <Cleanliness>-5</Cleanliness>
+        </statBases>
+        <graphicData>
+          <texPath>Things/Filth/PoolSoft</texPath>
+          <color>(60, 60, 50, 80)</color>
+          <shaderType>Transparent</shaderType>
+          <drawSize>0.5</drawSize>
+        </graphicData>
+        <altitudeLayer>
+            Building
+        </altitudeLayer>
+        <filth>
+          <disappearsInDays>35~40</disappearsInDays>
+          <rainWashes>true</rainWashes>
+          <cleaningWorkToReduceThickness>70</cleaningWorkToReduceThickness>
+          <canFilthAttach>true</canFilthAttach>
+          <cleaningSound>Interact_CleanFilth_Fluid</cleaningSound>
+        </filth>
+      </ThingDef>
+</Defs>

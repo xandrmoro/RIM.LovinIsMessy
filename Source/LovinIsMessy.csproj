@@ -50,8 +50,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Template.cs" />
-    <Compile Include="Settings.cs" />
+    <Compile Include="Dubs.cs" />
+    <Compile Include="JobDriver_Lovin_MakeNewToils.cs" />
+    <Compile Include="JobDriver_WakePartner.cs" />
+    <Compile Include="JobGiver_HaveWash_ForcedPriority.cs" />
+    <Compile Include="LovinIsMessy.cs" />
+    <Compile Include="LovinIsMessySettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
