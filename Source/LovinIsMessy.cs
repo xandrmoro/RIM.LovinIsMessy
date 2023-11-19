@@ -37,6 +37,7 @@ namespace LovinIsMessy
             if (Settings.JoyGainEnabled)
             {
                 listing.Label($"Joy Gain: {Settings.JoyGain.ToStringPercent()}");
+                Settings.JoyGain = listing.Slider(Settings.JoyGain, 0f, 1f);
             }
 
             if (BadHygieneLoaded)
