@@ -10,13 +10,17 @@ namespace LovinIsMessy
     [HarmonyPatch(typeof(JobDriver_Lovin), nameof(JobDriver_Lovin.MakeNewToils))]
     public class JobDriver_Lovin_MakeNewToils
     {
-        public static ThingDef FilthDef => DefDatabase<ThingDef>.GetNamed("lim_Filth_LoveJuice");
+        private static ThingDef _filthDef = null;
+        public static ThingDef FilthDef => _filthDef == null ? _filthDef = DefDatabase<ThingDef>.GetNamed("lim_Filth_LoveJuice") : _filthDef;
+
+        private static NeedDef _joyDef = null;
+        public static NeedDef JoyDef => _joyDef == null ? _joyDef = DefDatabase<NeedDef>.GetNamed("Joy") : _joyDef;
 
         public static IEnumerable<Toil> Postfix(IEnumerable<Toil> __result, JobDriver_Lovin __instance)
         {
             foreach (var toil in __result) yield return toil;
 
-            __instance.AddFinishAction(() => {
+            __instance.AddFinishAction((_) => {
                 var pawn = __instance.pawn;
                 var bed = __instance.Bed;
                 var position = pawn.Position;
@@ -32,7 +36,7 @@ namespace LovinIsMessy
 
                 FilthMaker.TryMakeFilth(position, pawn.Map, FilthDef, LovinIsMessy.Settings.FilthAmount);
 
-                var recreation = pawn.needs.TryGetNeed(NeedDefOf.Joy);
+                var recreation = pawn.needs.TryGetNeed(JoyDef);
 
                 if (recreation != null)
                     recreation.CurLevelPercentage += LovinIsMessy.Settings.JoyGain;
@@ -40,7 +44,7 @@ namespace LovinIsMessy
 
             if (LovinIsMessy.BadHygieneLoaded && Dubs.HygieneNeed != null)
             {
-                __instance.AddFinishAction(() =>
+                __instance.AddFinishAction((_) =>
                 {
                     var pawn = __instance.pawn;
                     var hygiene = pawn.needs.TryGetNeed(Dubs.HygieneNeed);
